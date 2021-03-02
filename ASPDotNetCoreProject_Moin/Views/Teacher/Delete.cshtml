@@ -1,0 +1,66 @@
+﻿@model ASPDotNetCoreProject_Moin.ViewModels.TeacherViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h6 style="color:red;">Are you sure to delete this Record?</h6>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="text-uppercase">Delete Teacher's Record!</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TeacherName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TeacherName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Designation)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Designation)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactNo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.JoiningDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TeacherPicture)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="~/Uploads/@Model.ExistingImage" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-sm btn-danger rounded-0"><i class="fa fa-trash-alt"></i> Delete</button>
+            @*<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-info rounded-0"><i class="fa fa-pencil-alt"></i> Edit</a>*@
+            <a asp-action="Index" class="btn btn-sm btn-primary rounded-0"><i class="fas fa-fast-backward"></i>Go Back </a>
+        </form>
+    </div>
+</div>

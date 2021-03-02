@@ -1,0 +1,135 @@
+﻿@model IEnumerable<ASPDotNetCoreProject_Moin.Models.BooksInfo>
+<div class="col-md-10 offset-md-2">
+    <h1 class="text-center"><i class="fas fa-comments-dollar text-success"></i>Book's Order History</h1>
+    <hr />
+    <br />
+    <div style="text-align:right">
+        
+            <a onclick="showInPopup('@Url.Action("AddOrEdit","Book",null,Context.Request.Scheme)','New Order')" class="btn btn-success text-white"><i class="fas fa-random"></i>Add New Order + </a>
+        
+    </div>
+
+    <br />
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuthorNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuthorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PublishingDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    Action
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublishingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <div>
+                            <form asp-action="Delete" asp-route-id="@item.BookId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                                <a onclick="showInPopup('@Url.Action("AddOrEdit","Book",new {id=item.BookId},Context.Request.Scheme)','Update Order')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+
+                                <input type="hidden" asp-for="@item.BookId" />
+                                <input type="submit" value="Delete" class="btn btn-danger " />
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*@model IEnumerable<ASPDotNetCoreProject_Moin.Models.BooksInfo>
+
+    <div class="col-md-8 offset-md-2">
+
+        <h1 class="text-center"><i class="fas fa-comments-dollar text-success"></i> Book's Information</h1>
+
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AuthorNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AuthorName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PublishingDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit","Book",null,Context.Request.Scheme)','New Order')" class="btn btn-success text-white"><i class="fas fa-random"></i> New Transaction</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublishingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <div>
+                            <a onclick="showInPopup('@Url.Action("AddOrEdit","Book",new {id=item.BookId},Context.Request.Scheme)','Update Book Order')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.BookId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                                <input type="hidden" asp-for="@item.BookId" />
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@

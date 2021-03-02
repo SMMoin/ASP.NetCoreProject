@@ -1,0 +1,72 @@
+﻿@model ASPDotNetCoreProject_Moin.Models.BooksInfo
+
+    @{ Layout = null; }
+
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="AddOrEdit" asp-route-id="@Model.BookId" onsubmit="return jQueryAjaxPost(this);">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="BookId" />
+                @*<input type="hidden" asp-for="PublishingDate" />*@
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AuthorNumber" class="control-label"></label>
+                            <div class="input-group">
+                                <input asp-for="AuthorNumber" class="form-control" />
+                            </div>
+                            <span asp-validation-for="AuthorNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="BookName" class="control-label"></label>
+                            <input asp-for="BookName" class="form-control" />
+                            <span asp-validation-for="BookName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AuthorName" class="control-label"></label>
+                            <input asp-for="AuthorName" class="form-control" />
+                            <span asp-validation-for="AuthorName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="ISBCode" class="control-label"></label>
+                            <input asp-for="ISBCode" class="form-control" />
+                            <span asp-validation-for="ISBCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <div class="input-group">                                
+                                <input asp-for="Price" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PublishingDate" class="control-label"></label>
+                            <input asp-for="PublishingDate" class="form-control" />
+                            <span asp-validation-for="PublishingDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 offset-md-3">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
